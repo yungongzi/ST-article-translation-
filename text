@@ -1,0 +1,13 @@
+Localization of the Complex Spectrum:The S Transform
+复杂频谱的定位：S变换
+The S transform, which is introduced in this correspondence,is an extension of the ideas of the continuous wavelet transform(CWT), 
+and is based on a moving and scalable localizing Gaussian window.
+在该对应引入的S变换，是连续小波变换（CWT）的思想扩展，并且是基于一个可移动、可缩放定位的高斯窗。
+It is shown here to have some desirable characteristics that are absent in the continuous wavelet transform.
+它具有在连续小波变换中不存在的一些所期望的特性。
+The S transform is unique in that it provides frequency-dependent resolution while maintaining a direct relationship with the 
+Fourier spectrum.
+S变换是独特的，因为它提供了频率相关的分辨率，同时与傅里叶谱（傅里叶变换）保持着直接的关系。
+These advantages of the S tansform are due to the fact that the modulating sinusoids are fxed with respect to the time axis,
+whereas the localizing scalable Gaussian window dilates and translates.
+S变换的这些优点正是由于调幅正弦相对于时间轴是固定的，而定位可缩放高斯窗是可扩张和平移的。
