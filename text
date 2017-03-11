@@ -11,3 +11,31 @@ S变换是独特的，因为它提供了频率相关的分辨率，同时与傅�
 These advantages of the S tansform are due to the fact that the modulating sinusoids are fxed with respect to the time axis,
 whereas the localizing scalable Gaussian window dilates and translates.
 S变换的这些优点正是由于调幅正弦相对于时间轴是固定的，而定位可缩放高斯窗是可扩张和平移的。
+
+Ⅰ. INTRODUCTION 
+一、介绍
+In geophysical data analysis and in many other discipline,the concept of a stationary time series is a mathematical idealizatiom 
+that is never realized and is not particularly useful in the detection of signal arrivals. 
+在地球物理数据分析以及许多其他学科中，固定时间序列是一种数学理想化概念，这是从来没有实现过得，并且在检测信号抵达中不是特别有用。
+Although the Fourier transform of the entire time series does contain information about the spectral components in a time series,
+for a large class of pratical applications, this information is inadequate.
+虽然整个时间序列的傅里叶变换确实包含关于时间序列中的频谱分量的信息，但对于大类的实际应用，这些信息是不够的。
+ An example from seismology is an earthquake seismogram. The frst signal to arrive from an earthquake is the P(Primary) wave followed
+ by other P waves traveling along different paths.
+ 地震学的一个例子是地震震动图。 从地震中到达的第一个信号是P（主）波，其次是沿着不同路径传播的其他P波。
+  The P arrivals are followed by the S(Secondary) wave and by higher amplitude dispersive surface waves.
+P波到达之后是S（次级）波和较高振幅色散的面波。
+The amplitude of these osclilations can increase by more than two orders of magnitude within a few minutes of the arrival of P.
+这些振荡的振幅在P波的到达的几分钟内可以增加两个数量级以上。
+  The spectral components of such a time series clearly have a strong depend on time. It would be desirable to have a joint time-
+ ferquency representation(TFR).
+ 这种时间序列的频谱分量显然具有很强的时间依赖性。期望具有联合时间-频率来表示（TFR）。
+ This correspondence proposes a new transform (called the S transform) that provides a TFR with frequency-dependent resolution while, 
+ at the same time, maintaining the direct relationship, through time-averaging, with the Fourier spectrum.
+ 这对应提出了一种新的变换（称为S变换），其提供具有频率相关分辨率的TFR，同时通过时间平均与傅立叶频谱保持直接关系。
+ Several techniques of examining the time-varying nature of the spectrum have been proposed in the past; 
+ among them are the Gabor transform the related short time Fourier transforms, 
+ the continuous wavelet transform and the bilinear class of time-frequency distributions known as Cohen’s class，
+ of which the Wigner distribution is a member.
+ 过去已经提出了几种检查频谱的时变特性的技术; 其中有Gabor变换，相关的短时傅里叶变换，连续小波变换和称为Cohen类的时频分布的双线性类，
+ Wigner分布也是其成员。
