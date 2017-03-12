@@ -1,41 +1,108 @@
 Localization of the Complex Spectrum:The S Transform
-复杂频谱的定位：S变换
+ 复杂频谱的定位：S变换
 The S transform, which is introduced in this correspondence,is an extension of the ideas of the continuous wavelet transform(CWT), 
 and is based on a moving and scalable localizing Gaussian window.
-在该对应引入的S变换，是连续小波变换（CWT）的思想扩展，并且是基于一个可移动、可缩放定位的高斯窗。
+ 在该对应引入的S变换，是连续小波变换（CWT）的思想扩展，并且是基于一个可移动、可缩放定位的高斯窗。
 It is shown here to have some desirable characteristics that are absent in the continuous wavelet transform.
-它具有在连续小波变换中不存在的一些所期望的特性。
+ 它具有在连续小波变换中不存在的一些所期望的特性。
 The S transform is unique in that it provides frequency-dependent resolution while maintaining a direct relationship with the 
 Fourier spectrum.
-S变换是独特的，因为它提供了频率相关的分辨率，同时与傅里叶谱（傅里叶变换）保持着直接的关系。
+ S变换是独特的，因为它提供了频率相关的分辨率，同时与傅里叶谱（傅里叶变换）保持着直接的关系。
 These advantages of the S tansform are due to the fact that the modulating sinusoids are fxed with respect to the time axis,
 whereas the localizing scalable Gaussian window dilates and translates.
-S变换的这些优点正是由于调幅正弦相对于时间轴是固定的，而定位可缩放高斯窗是可扩张和平移的。
+ S变换的这些优点正是由于调幅正弦相对于时间轴是固定的，而定位可缩放高斯窗是可扩张和平移的。
 
 Ⅰ. INTRODUCTION 
 一、介绍
 In geophysical data analysis and in many other discipline,the concept of a stationary time series is a mathematical idealizatiom 
 that is never realized and is not particularly useful in the detection of signal arrivals. 
-在地球物理数据分析以及许多其他学科中，固定时间序列是一种数学理想化概念，这是从来没有实现过得，并且在检测信号抵达中不是特别有用。
+ 在地球物理数据分析以及许多其他学科中，固定时间序列是一种数学理想化概念，这是从来没有实现过得，并且在检测信号抵达中不是特别有用。
 Although the Fourier transform of the entire time series does contain information about the spectral components in a time series,
 for a large class of pratical applications, this information is inadequate.
-虽然整个时间序列的傅里叶变换确实包含关于时间序列中的频谱分量的信息，但对于大类的实际应用，这些信息是不够的。
- An example from seismology is an earthquake seismogram. The frst signal to arrive from an earthquake is the P(Primary) wave followed
- by other P waves traveling along different paths.
+ 虽然整个时间序列的傅里叶变换确实包含关于时间序列中的频谱分量的信息，但对于大类的实际应用，这些信息是不够的。
+An example from seismology is an earthquake seismogram. The frst signal to arrive from an earthquake is the P(Primary) wave followed
+by other P waves traveling along different paths.
  地震学的一个例子是地震震动图。 从地震中到达的第一个信号是P（主）波，其次是沿着不同路径传播的其他P波。
-  The P arrivals are followed by the S(Secondary) wave and by higher amplitude dispersive surface waves.
-P波到达之后是S（次级）波和较高振幅色散的面波。
+The P arrivals are followed by the S(Secondary) wave and by higher amplitude dispersive surface waves.
+ P波到达之后是S（次级）波和较高振幅色散的面波。
 The amplitude of these osclilations can increase by more than two orders of magnitude within a few minutes of the arrival of P.
-这些振荡的振幅在P波的到达的几分钟内可以增加两个数量级以上。
-  The spectral components of such a time series clearly have a strong depend on time. It would be desirable to have a joint time-
- ferquency representation(TFR).
+ 这些振荡的振幅在P波的到达的几分钟内可以增加两个数量级以上。
+The spectral components of such a time series clearly have a strong depend on time. It would be desirable to have a joint time-
+ferquency representation(TFR).
  这种时间序列的频谱分量显然具有很强的时间依赖性。期望具有联合时间-频率来表示（TFR）。
- This correspondence proposes a new transform (called the S transform) that provides a TFR with frequency-dependent resolution while, 
- at the same time, maintaining the direct relationship, through time-averaging, with the Fourier spectrum.
+This correspondence proposes a new transform (called the S transform) that provides a TFR with frequency-dependent resolution while, 
+at the same time, maintaining the direct relationship, through time-averaging, with the Fourier spectrum.
  这对应提出了一种新的变换（称为S变换），其提供具有频率相关分辨率的TFR，同时通过时间平均与傅立叶频谱保持直接关系。
- Several techniques of examining the time-varying nature of the spectrum have been proposed in the past; 
- among them are the Gabor transform the related short time Fourier transforms, 
- the continuous wavelet transform and the bilinear class of time-frequency distributions known as Cohen’s class，
- of which the Wigner distribution is a member.
- 过去已经提出了几种检查频谱的时变特性的技术; 其中有Gabor变换，相关的短时傅里叶变换，连续小波变换和称为Cohen类的时频分布的双线性类，
- Wigner分布也是其成员。
+Several techniques of examining the time-varying nature of the spectrum have been proposed in the past; 
+among them are the Gabor transform the related short time Fourier transforms, the continuous wavelet transform and the bilinear class 
+of time-frequency distributions known as Cohen’s class，of which the Wigner distribution is a member.
+ 过去已经提出了几种检查频谱的时变特性的技术; 其中有Gabor变换，相关的短时傅里叶变换，连续小波变换和称为Cohen类的时频分布的双线性类，Wigner分布也是其成员。
+
+Ⅱ.THE S TRANSFORM
+ 二、S变换
+There are several methods of arriving at the S transform. 
+ 存在几种实现S变换的方法。
+We consider it illuminating to derive the S transform as the “phase correction” of the continuous wavelet transform (CWT).
+ 我们认为S变换是源自连续小波变换（CWT）的“相位校正”。
+The CWT W(τ, d) of afunction h(t) is de£ned by
+
+ 函数h(t)的连续小波变换（CWT）W(τ, d)被定义为
+where w(t,d) is a scaled replica of the fundamental mother wavelet.
+ 其中w(t,d)是基本母波小波的延伸扩展。
+The dilation d determines the “width” of the wavelet w(t,d) and thus controls the resolution.
+ 扩张因子d决定了小波w(t,d)的“宽度”，从而控制分辨率。
+Along with (1), there exists an admissibility condition on the mother wavelet w(t,d) that w(t,d) must have zero mean.
+ 式(1)中，对于小波w(t,d)存在可容许性条件，即w(t,d)必须具有零均值。
+The reader is referred to Rioul and Vetterli and Young for reviews of the literature.
+ 这里读者可以参考Rioul、Vetterli以及Young的文献综述。
+The S transform of a function h(t) is de£ned as a CWT with a speci£c mother wavelet multiplied by the phase factor.
+ 函数h(t)的S变换定义为具有特定母小波乘以相位因子的连续小波变换（CWT）。
+where the mother wavelet is de£ned as
+
+ 其中母小波定义为：
+Note that the dilation factor d is the inverse of the frequency f.
+ 注意，扩张因子d是频率f的倒数。
+The wavelet in (3) does not satisfy the condition of zero mean for an admissible wavelet; 
+therefore, (2) is not strictly a CWT. Written out explicitly, the S transform is
+
+ 式(3)中的小波不满足允许小波的零均值条件，因此，式(2)不是严格的CWT。这里明确写出，S变换为：
+If the S transform is indeed a representation of the local spectrum,one would expect a simple operation of averaging 
+the local spectra over time to give the Fourier spectrum. It is easy to show that
+ 如果S变换的确是局部频谱的表示，则可以期望对局部频谱随做时间平均的简单操作来给出傅立叶频谱。 很容易表示：
+ 
+(where H(f) is the Fourier transform of h(t)).It follows that h(t) is exactly recoverable from S(τ,f). Thus,
+ (这里H(f)是h(t)的傅里叶变换)。因此h(t)可从S(τ,f)中精确地恢复。所以有：
+ 
+This is clearly distinct from the concepts of the CWT.
+ 这与CWT的概念明显不同。
+The S transform provides an extension of instantaneous frequency(IF) to broadband signals. 
+ S变换向宽带信号提供瞬时频率（IF）的扩展。
+The one dimensional function of the variable τ and £xed parameter f1 de£ned by S(τ,f1) is called a voice(as with the CWT). 
+  由S（τ,f1）定义的变量τ和固定参数f1的一维函数被称为声函数（与CWT一样）。
+The voice for a particular frequency f1 can be written as S(τ, f1) = A(τ, f1)exp(iΦ(τ,f1)).
+ 特定频率f1的声函数可以写为：S(τ, f1) = A(τ, f1)exp(iΦ(τ,f1))
+Since a voice isolates a speci£c component, one may use the phase in (7) to determine the IF as de£ned by Bracewell
+
+ 由于声函数隔离特定分量，可以使用（7）中的相位来确定由Bracewell定义的IF：
+Thus the absolutely referenced phase information leads to a generalization of the IF of Bracewell to broadband signals. 
+ 因此，绝对参照的相位信息导致宽带信号的Bracewell的IF的一般化。
+The validity of (8) can easily be seen for the simple case of h(t) = cos(2πwt), where the function Φ(τ,f) = 2π(w−f)τ.
+ 对于h（t）= cos（2πwt）的简单情况，可以容易地看到（8）的有效性，其中函数Φ（τ，f）=2π（w-f）τ。
+The linear property of the S transform insures that for the case of additive noise (where one can model the data as 
+data(t) = signal(t) +noise(t) ), the S transform gives S{data} = S{signal} + S{noise}.
+ S变换的线性特性确保对于加性噪声的情况（其中可以将数据建模为：数据(t)= 信号(t)+噪声(t)），S变换给出:S{data} = S{signal} + S{noise}。
+This is an advantage over the bilinear class of TFRs (see “propagation of noise” in [4] ), where one £nds
+TFR{data} = TFR{signal} + TFR{noise} + 2 ∗ TFR{signal} ∗ TFR{noise}.
+ 这是相对于双线性TFR类的优点（参见[4]中的“噪声的传播”），其中一个:TFR{data} = TFR{signal} + TFR{noise} + 2 ∗ TFR{signal} ∗ TFR{noise}.
+The presence of the cross terms makes it dif£cult to reliably estimate the signal. As with standard spectral analysis, 
+signi£cance test must be performed on the noisy local spectra to establish conldence intervals.
+ 交叉项的存在使得难以可靠地估计信号。 与标准频谱分析一样，必须对噪声局部频谱执行信号测试，以建立准谐度间隔。
+The S transform can be written as operations on the Fourier spectrum H(f) of h(t)
+
+ S变换可以写为在h（t）的傅里叶频谱H（f）上的转换：
+The discrete analog of (9) is used to compute the discrete S transform by taking advantage of the ef£ciency of 
+the Fast Fourier transform (FFT) and the convolution theorem. By not translating the cosinusoid basis functions, 
+the S transform localizes the real and imaginary components of the spectrum independently, 
+localizing the phase spectrum as well as the amplitude spectrum.
+ 式（9）中的离散模拟用于通过利用快速傅里叶变换（FFT）和卷积定理的效率来计算离散S变换。 通过不转换余弦基函数，S变换独立地定位频谱的实部和虚部，
+ 定位相位谱以及幅度谱。
