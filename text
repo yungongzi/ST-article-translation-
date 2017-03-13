@@ -106,3 +106,91 @@ the S transform localizes the real and imaginary components of the spectrum inde
 localizing the phase spectrum as well as the amplitude spectrum.
  式（9）中的离散模拟用于通过利用快速傅里叶变换（FFT）和卷积定理的效率来计算离散S变换。 通过不转换余弦基函数，S变换独立地定位频谱的实部和虚部，
  定位相位谱以及幅度谱。
+
+Ⅲ.THE DISCRETE S TRANSFORM
+ 三、离散S变换
+Let h[kT], k = 0,1,...,N − 1 denote a discrete time series, corresponding to h(t), with a time sampling interval of T. 
+The discrete Fourier transform is given by [3]
+
+ 令h[kT]，k = 0,1，...，N-1表示对应于h(t)的离散时间序列，时间采样间隔为T。离散傅里叶变换如下（参考文献[3]）：
+where n = 0,1,...,N − 1. In the discrete case, the S transform is the projection of the vector de£ned by the time series h[kT] 
+onto a spanning set of vectors.The spanning vectors are not orthogonal, and the elements of the S transform are not independent.
+ 其中n = 0,1，...，N-1。在离散情况下，S变换是由时间序列h[kT]定义的矢量到跨越矢量集合的投影。 跨越矢量不是正交的，并且S变换的元素不是独立的。
+Each basis vector (of the Fourier transform) is divided into N localized vectors by an element-by-element product with the N shifted 
+Gaussians,such that the sum of these N localized vectors is the original basis vector.
+ 通过具有N个移位高斯模型的逐个元素乘积将每个基向量（傅里叶变换的）划分为N个局部化向量，使得这些N个局部化向量的和是原始基向量。
+Using (9), the S transform of a discrete time series h[kT] is given by (letting f → n/NT and τ → jT)
+
+ 由（9）式，离散时间序列h[kT]的S变换如下（令f→n / NT和τ→jT）：
+and for the n = 0 voice, it is equal to the constant de£ned as
+
+ 对于n = 0的声波，它等于常数，定义为：
+where j, m and n = 0, 1, ..., N − 1. Equation (12) puts the constant average of the time series into the zero frequency voice, 
+thus assuring the inverse is exact. The discrete S transform suffers the familiar problems from sampling and £nite length, 
+giving rise to implicit periodicity in the time and frequency domains. The discrete inverse of the S transform is:
+
+ 其中j,m,n = 0,1，...，N-1。等式（12）将时间序列的恒定平均值放入零频率声波中，从而确保反演是精确的。 
+ 离散S变换具有采样和有限长度的常见问题，导致时域和频域中的隐式周期性。 离散S逆变换为：
+
+Ⅳ.SELF-ALIASING
+ 自混叠现象
+The Fourier spectrum of the Gaussian window at a specific n is called a voice Gaussian. Using (11), any voice of the S transform,
+may be computed as the product of the Fourier spectrum H[m/NT] of the time series and the voice Gaussian. 
+For example, in (11),the voice Gaussian is
+
+ 特定n处的高斯窗的傅里叶频谱称为声波高斯。由（11），对于S变换的任何声波，作为时间序列的傅里叶谱H[m/NT]和声波高斯模型的乘积，都可以计算出来。
+ 例如，在式（11）中，声波高斯模型是：
+Due to sampling in the time domain, the discrete spectrum is periodic.Thus, in (11) one can see that as n/NT approaches the Nyquist 
+frequency 1/2T,the voice Gaussian overlaps into the negative frequencies of H[m/NT]. We call this self-aliasing. This self-aliasing 
+occurs even when the sampling rate satis£es the Nyquist criterion. The voice Gaussian becomes quite wide at the high frequencies, 
+and self-aliasing introduces errors. In order to minimize the effect of self-aliasing, we de£ne a special Nyquist frequency for 
+the S transform sN. When the voice Gaussian is centred over sN, the 2σ point is at the Fourier Nyquist frequency fN. Thus
+
+ 由于在时域中的采样，离散频谱是周期性的。因此，从式（11）中可以看出，当n/NT接近奈奎斯特频率1/2T时，声波高斯模型重叠到H[m/NT]的负频率。 我们称之为自混叠。
+ 即使当采样率满足奈奎斯特准则时，该自混叠现象也会发生。 声波高斯模型在高频变得相当宽，并且自混叠引入误差。 为了最小化自混叠的影响，
+ 我们为S变换sN定义特殊的奈奎斯特频率。 当语音高斯以sN为中心时，2σ点处于傅里叶奈奎斯特频率fN。 从而：
+The minimum sample rate Ts is given by
+
+ 最小采样率Ts由下式给出：
+Compare to the Fourier Nyquist sample rate given by Tf = 1/(2fN). Of course, when dealing with a real-valued time series, 
+one can use the analytic signal of the time series for localization [1]. 
+This has the result of setting all negative frequencies to zero, and thus there is no self-aliasing. 
+ 与由Tf = 1 /（2fN）给出的傅立叶奈奎斯特采样速率相比较。 当然，当处理实值时间序列时，可以使用时间序列的分析信号进行定位[1]。
+ 这具有将所有负频率设置为零的结果，并且因此没有自混叠。
+
+Ⅴ.DISCUSSION
+ 五、讨论
+Figs. 1 and 2 demonstrate the class of time series for which the S transform would be useful; 
+they highlight the advantages of such an approach as compared with other techniques.
+ 图1和图2示出了时间序列的类别来说明S变换是有用的; 它们强调了这种方法与其他技术相比的优点。
+In Fig. 1, a synthetic time series consisting of high and low frequencies and a high frequency burst is used to 
+compare the performance of the S transform with the STFT. The frequency dependent resolution of the S transform allows
+the detection of the high frequency burst, and shows good frequency resolution on the long period signal. 
+The constant window width of the STFT shows up in the poorer de£nition of all three components. 
+The long period signal in the STFT is self-aliased, causing a variation in its amplitude. 
+With the STFT there is a tradeoff between detecting short lived high frequency signals and low frequency signals.
+ 如图1所示，使用由高频和低频以及高频突发组成的合成时间序列来比较S变换与STFT的性能。 S变换的频率分辨率允许检测高频突发，
+ 并且对长周期信号显示出良好的频率分辨率。STFT的恒定窗口宽度显示出了其在所有三个分量中的定义是较差。 STFT中的长周期信号是自混叠的，导致其振幅的变化。 
+ 使用STFT，在检测短暂高频信号和低频信号之间存在折衷。
+In Fig. 2, two high-frequency bursts are added to crossed chirps.All four components are detected by the S transform. 
+The chirps are seen with the STFT, but the two high frequency components are not detected. The STFT does not have suf£cient time 
+resolution to resolve the two signals. In fact, the interference of the two bursts causes it to appear as a single signal at a 
+lower frequency. The Wigner distribution has very good time and frequency resolution, as is evident on the crossed chirps. 
+The cost of such resolution is the presence of cross terms which hinder interpretation of such a plot. 
+Indeed, the interference of cross terms causes the two bursts to be completely misrepresented.
+ 如图2所示，两个高频突发被添加到交叉噪声。所有四个分量由S变换检测。 用STFT看到噪声，但是没有检测到两个高频分量。 
+ STFT没有足够的时间分辨率来解析这两个信号。 事实上，两个突发的干扰使其在较低频率处表现为单个信号。 
+ Wigner分布具有非常好的时间和频率分辨率，如在交叉噪声上是显而易见的。这种分辨率的成本是交叉项的存在，妨碍了对这种情节的解释。 
+ 实际上，交叉项的干扰导致两个突发信号被完全错误表示。
+ 
+ Ⅵ.CONCLUSIONS
+  六、结论
+ The power and limitations of the S transform are apparent from the above examples. The inverse frequency dependence of the localizing 
+ Gaussian window is an improvement over the £xed width window used in the STFT. The phase of the S transform referenced to the time 
+ origin provides useful and supplementary information about spectra which is not available from locally referenced phase information 
+ in CWT. However, being related to the Fourier transform, the S transform suffers from some of the same drawbacks that af¤ict 
+ all discretely sampled transforms. We believe that further developments in S transform will £nd applications in a broad range 
+ of disciplines.
+  从上述例子可以看出S变换的功率和限制。 定位高斯窗的逆频率相关性是对在STFT中使用的有限宽度窗口的改进。 
+  参考时间原点的S变换的相位提供关于在CWT中从本地参考相位信息不可用的频谱的有用和补充信息。 
+  然而，与傅立叶变换相关，S变换遭受与所有离散采样变换相同的一些相同缺点。 我们相信，S变换的进一步发展将在广泛的学科领域得到应用。
